@@ -11,3 +11,13 @@ Ominaisuudet:
 * Omalta sivulta käyttäjä näkee yhteenvedon omista suorituksista, sekä voi asettaa tavoitteita eri aikaväleille. 
 * Ylläpitäjä voi luoda tapahtumia, minne käyttäjät voivat ilmoittautua.
 * Ylläpitäjä voi jakaa uutisia sovellukseen liittyvistä asioista ja uusista tapahtumista.
+
+Nykyinen tilanne: Sovellukseen voi kirjautua sekä tehdä uusia julkaisuja, vielä tekemättä ovat kavereiden haku, ystävät, ja ryhmät. Nykyinen versio on mallinnettu keskusteluesimerkin avulla joka antaa sille hyvän pohjan, mistä voi seuraavaan palautukseen parannella ja muuntaa sovellusta sen oikeaan käyttötarkoitukseen.
+
+Sovellusta voi testata kloonaamalla repositorio, luomalla .env minne lisätään DATABASE_URL ja SECRET_KEY, jonka jälkeen suoritetaan seuraavat komennot:
+
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r ./requirements.txt
+$ psql < schema.sql
+$ flask run
