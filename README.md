@@ -17,7 +17,11 @@ Nykyinen tilanne: Sovellukseen voi kirjautua sekä tehdä uusia julkaisuja, viel
 Sovellusta voi testata kloonaamalla repositorio, luomalla .env minne lisätään DATABASE_URL ja SECRET_KEY, jonka jälkeen suoritetaan seuraavat komennot:
 
 $ python3 -m venv venv
+
 $ source venv/bin/activate
+
 $ pip install -r ./requirements.txt
+
 $ psql < schema.sql
+
 $ flask run
