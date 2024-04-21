@@ -1,6 +1,6 @@
 from db import db
 from sqlalchemy.sql import text
-from flask import session
+from flask import session, request
 from werkzeug.security import check_password_hash, generate_password_hash
 
 def login(username, password):
@@ -33,3 +33,29 @@ def register(username, password):
 
 def user_id():
     return session.get("user_id",0)
+
+def result():
+    query = request.args["query"]
+    sql = text("SELECT username FROM users WHERE username LIKE :query")
+    result = db.session.execute(sql, {"query":"%"+query+"%"})
+    results = result.fetchall()
+    return results
+
+def get_user_events(username):
+    sql = text("""SELECT E.event_name 
+               FROM Events E 
+               LEFT JOIN Eventmembers EM ON E.id = EM.event_id 
+               LEFT JOIN users U ON EM.member_id = U.id 
+               WHERE U.username = :username""")
+    result = db.session.execute(sql, {"username": username})
+    return result.fetchall()
+
+
+def get_user_groups(username):
+    sql = text("""SELECT G.group_name 
+               FROM Groups G 
+               LEFT JOIN Groupmembers GM ON G.id = GM.group_id 
+               LEFT JOIN users U ON GM.member_id = U.id 
+               WHERE U.username = :username""")
+    result = db.session.execute(sql, {"username": username})
+    return result.fetchall()

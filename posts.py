@@ -12,6 +12,18 @@ def get_posts():
     result = db.session.execute(text(sql))
     return result.fetchall()
 
+def get_user_posts(username):
+    sql = """
+    SELECT P.laji, P.kesto, P.extra, P.sent_at 
+    FROM posts P
+    JOIN users U ON P.user_id = U.id
+    WHERE U.username = :username
+    ORDER BY P.id
+    """
+    result = db.session.execute(text(sql), {"username": username})
+    return result.fetchall()
+
+
 def send(laji, kesto, extra):
     user_id = users.user_id()
     if user_id == 0:
@@ -21,6 +33,31 @@ def send(laji, kesto, extra):
     VALUES (:laji, :kesto, :extra, :user_id, NOW())
     """
     stmt = text(sql).bindparams(laji=laji, kesto=kesto, extra=extra, user_id=user_id)
+    db.session.execute(stmt)
+    db.session.commit()
+    return True
+
+def eventcreate(nimi, info):
+    user_id = users.user_id()
+    if user_id == 0:
+        return False
+    sql = """
+    INSERT INTO events (event_name, event_info, organizer_id)
+    VALUES (:nimi, :info, :user_id)"""
+    stmt = text(sql).bindparams(nimi=nimi, info=info, user_id=user_id)
+    db.session.execute(stmt)
+    db.session.commit()
+    return True
+
+
+def groupcreate(nimi, info):
+    user_id = users.user_id()
+    if user_id == 0:
+        return False
+    sql = """
+    INSERT INTO groups (group_name, group_info, owner_id)
+    VALUES (:nimi, :info, :user_id)"""
+    stmt = text(sql).bindparams(nimi=nimi, info=info, user_id=user_id)
     db.session.execute(stmt)
     db.session.commit()
     return True

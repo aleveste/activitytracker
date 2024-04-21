@@ -1,0 +1,6 @@
+<hr>
+<title>Tulokset</title>
+{% for name in result %}
+<a href="/profile/{{ name[0] }}">{{ name[0] }}</a>
+<br>
+{% endfor %}
