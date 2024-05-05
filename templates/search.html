@@ -1,5 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
+<h2>Haku</h2>
 <form action="/result" method="GET">
-    Hae käyttäjä: <input type="text" name="query">
+    <input type="text" name="query">
     <br>
     <input type="submit" value="Lähetä">
     </form>
+{% endblock %}

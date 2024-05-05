@@ -1,6 +1,27 @@
-<hr>
-<title>Tulokset</title>
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
+
+<h2>Tulokset</h2>
+<br>
+<b>Käyttäjät</b>
+<br>
 {% for name in result %}
 <a href="/profile/{{ name[0] }}">{{ name[0] }}</a>
 <br>
 {% endfor %}
+<br>
+<b>Ryhmät</b>
+<br>
+{% for group in groups %}
+<a href="/group/{{ group[0] }}">{{ group[0] }}</a>
+<br>
+{% endfor %}
+<br>
+<b>Tapahtumat</b>
+<br>
+{% for event in events %}
+<a href="/event/{{ event[0] }}">{{ event[0] }}</a>
+<br>
+{% endfor %}
+{% endblock %}

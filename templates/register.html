@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
 <form action="/register" method="post">
     Tunnus: <input type="text" name="username">
     <p>
@@ -7,3 +10,4 @@
     <p>
     <input type="submit" value="Luo tunnus">
     </form>
+{% endblock %}

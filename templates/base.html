@@ -1,0 +1,12 @@
+<title>Activitytracker - {% block title %}{% endblock %}</title>
+<b><p style="font-size: 32px;">Activitytracker</p></b>
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<a href="/new">Uusi aihe</a> | <a href="/logout">Kirjaudu ulos</a> | <a href="/search">Haku</a> | <a href="/newgroup">Uusi ryhmä</a> | <a href="/newevent">Uusi tapahtuma</a> | <a href="/getadmin">Ylläpitäjä</a> | <a href="/">Kotisivu</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
+<hr>
+{% block content %}{% endblock %}
+<hr>
+

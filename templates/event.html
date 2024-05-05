@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
+<h2>{{ eventname }}</h2>
+Lisää tietoa tapahtumasta: {{ info[0] }}
+<br>
+<br>
+Osallistujat: {{ count[0] }}
+<br>
+<br>
+{% if inevent %}
+<p style="color: green;">Olet liittynyt tapahtumaan</p>
+{% else %}
+<a href="/joinevent/{{ eventname }}">Liity Tapahtumaan</a>
+{% endif %}
+{% endblock %}

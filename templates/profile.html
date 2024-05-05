@@ -1,5 +1,21 @@
-{{ username }}
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
+<h2>{{ username }}</h2>
+<b>Ryhmät</b>
 <br>
+{% for group in groups %}
+{{ group[0] }}
+<br>
+{% endfor %}
+<br>
+<b>Tapahtumat</b>
+<br>
+{% for event in events %}
+{{ event[0] }}
+<br>
+{% endfor %}
+<hr>
 <b>Julkaisut:</b>
 <br>
 {% for post in posts %}
@@ -13,12 +29,4 @@
 <hr>
 {% endfor %}
 <br>
-<b>Ryhmät:</b>
-{% for group in groups %}
-{{ group[0] }}
-{% endfor %}
-<br>
-<b>Tapahtumat:</b>
-{% for event in events %}
-{{ event[0] }}
-{% endfor %}
+{% endblock %}

@@ -1,19 +1,19 @@
-<hr>
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+
+{% block content %}
+<h2>Uusimmat päivitykset</h2>
 {% for post in posts %}
+<b><i>Lähettäjä:</i> {{ post[3] }}</b>
+<p>
 <i>Laji:</i> {{ post[0] }}
 <p>
 <i>Kesto:</i> {{ post[1] }}
 <p>
 <i>Extra:</i> {{ post[2] }}
 <p>
-<i>Lähettäjä:</i> {{ post[3] }}
-<p>
 <i>Aika:</i> {{ post[4].strftime("%Y-%m-%d %H:%M:%S") }}
-<hr>
+<br>
+<br>
 {% endfor %}
-{% if session.user_id %}
-Olet kirjautunut sisään.
-<a href="/new">Lähetä viesti</a> | <a href="/logout">Kirjaudu ulos</a> | <a href="/search">Etsi käyttäjä</a> | <a href="/newgroup">Uusi ryhmä</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}
+{% endblock %}

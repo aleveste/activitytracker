@@ -1,1 +1,5 @@
-Virhe: {{ message }}
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
+<p style="color: red;">Virhe: {{ message }}</p>
+{% endblock %}

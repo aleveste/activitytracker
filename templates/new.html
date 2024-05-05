@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Activitytracker{% endblock %}
+{% block content %}
 <form action="/send" method="post">
     Laji: <br>
     <textarea name="laji" rows="1" cols="30"></textarea>
@@ -10,3 +13,4 @@
     <br>
     <input type="submit" value="Lähetä">
     </form>
+{% endblock %}
