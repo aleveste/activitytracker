@@ -7,7 +7,7 @@ def get_posts():
     SELECT P.laji, P.kesto, P.extra, U.username, P.sent_at 
     FROM posts P
     JOIN users U ON P.user_id = U.id
-    ORDER BY P.id
+    ORDER BY P.id DESC
     """
     result = db.session.execute(text(sql))
     return result.fetchall()
@@ -18,9 +18,22 @@ def get_user_posts(username):
     FROM posts P
     JOIN users U ON P.user_id = U.id
     WHERE U.username = :username
-    ORDER BY P.id
+    ORDER BY P.id DESC
     """
     result = db.session.execute(text(sql), {"username": username})
+    return result.fetchall()
+
+def get_group_posts(groupname):
+    sql = """
+    SELECT P.laji, P.kesto, P.extra, U.username, P.sent_at 
+    FROM posts P
+    JOIN users U ON P.user_id = U.id
+    JOIN groupmembers GM ON U.id = GM.member_id
+    JOIN groups G ON GM.group_id = G.id
+    WHERE G.group_name = :groupname
+    ORDER BY P.id DESC
+    """
+    result = db.session.execute(text(sql), {"groupname": groupname})
     return result.fetchall()
 
 
