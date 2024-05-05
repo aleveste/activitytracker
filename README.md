@@ -12,7 +12,11 @@ Ominaisuudet:
 * Ylläpitäjä voi luoda tapahtumia, minne käyttäjät voivat ilmoittautua.
 * Ylläpitäjä voi jakaa uutisia sovellukseen liittyvistä asioista ja uusista tapahtumista.
 
-Nykyinen tilanne: Sovellukseen voi kirjautua sekä tehdä uusia julkaisuja, vielä tekemättä ovat kavereiden haku, ystävät, ja ryhmät. Nykyinen versio on mallinnettu keskusteluesimerkin avulla joka antaa sille hyvän pohjan, mistä voi seuraavaan palautukseen parannella ja muuntaa sovellusta sen oikeaan käyttötarkoitukseen.
+Nykyinen tilanne: 
+
+7.4 Sovellukseen voi kirjautua sekä tehdä uusia julkaisuja, vielä tekemättä ovat kavereiden haku, ystävät, ja ryhmät. Nykyinen versio on mallinnettu keskusteluesimerkin avulla joka antaa sille hyvän pohjan, mistä voi seuraavaan palautukseen parannella ja muuntaa sovellusta sen oikeaan käyttötarkoitukseen.
+
+21.4 Profiilisivu lisätty, ryhmän ja tapahtuman luonti lisätty, etsintä lisätty. Tekemättä vielä ylläpitäjän rooli, ryhmien/tapahtumien etsintä ja etusivu ja sivujen ulkonäkö.
 
 Sovellusta voi testata kloonaamalla repositorio, luomalla .env minne lisätään DATABASE_URL ja SECRET_KEY, jonka jälkeen suoritetaan seuraavat komennot:
 
